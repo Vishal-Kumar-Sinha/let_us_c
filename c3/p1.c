@@ -30,7 +30,7 @@ bool check(int num) {
 int main() {
     int num=0;
     scanf("%d", &num);
-    if(check(num)==true)
+    if(check(num))
         printf("equal");
     else
         printf("not");
