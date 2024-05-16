@@ -10,7 +10,6 @@ int main() {
     scanf("%d",&limit);
     while (limit>=1)
     {
-        printf("please enter the number\n");
         scanf("%d" , &num);
         if (num>0)
             p++;

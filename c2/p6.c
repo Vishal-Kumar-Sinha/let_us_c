@@ -4,7 +4,6 @@ two locations C and D. Write a program to
 interchange the contents of C and D.
 */
 #include<stdio.h>
-
 void swap(const void*a, const void*b) {
     const void*temp=a;
     a=b;

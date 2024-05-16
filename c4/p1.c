@@ -5,7 +5,6 @@ a scalene or a right-angled triangle.
 */
 #include<stdio.h>
 #include<stdbool.h>
-
 bool check(int a, int b, int c) {
     if((a<c && b<c && a+b>c)||(a<b && c<b && a+c>b)||(b<a && c<a && b+c>a))
         return true;

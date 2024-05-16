@@ -4,7 +4,6 @@ through the keyboard.
 */
 #include<stdio.h>
 #include<stdlib.h>
-
 int getAbsolute(int num) {
     return (abs(num));
 }

@@ -15,8 +15,8 @@ grace of 5 marks.
 #include<stdio.h>
 int main() {
     int cl=0,sub=0;
-    scanf("%d %d",&cl,&sub);
     printf("0: First Class\n1: Second Class\n2: Third Class\n");
+    scanf("%d %d",&cl,&sub);
     switch(cl) {
     case 0:
         if(sub>3) printf("No grace");

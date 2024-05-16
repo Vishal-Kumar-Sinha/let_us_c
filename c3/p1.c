@@ -7,7 +7,6 @@ the original and reversed numbers are equal or not.
 #include<stdlib.h>
 #include<math.h>
 #include<stdbool.h>
-
 bool check(int num) {
     num=abs(num);
     int temp=num;

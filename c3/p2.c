@@ -3,7 +3,6 @@ If ages of Ram, Shyam and Ajay are input through the keyboard,
 write a program to determine the youngest of the three. 
 */
 #include<stdio.h>
-
 void getYoungest(int a1, int a2, int a3) {
     if(a1<a2 && a1<a3)
         printf("Ram");

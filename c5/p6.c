@@ -10,7 +10,6 @@ int main() {
     printf("how many numbers you want to input:: ");
     scanf("%d",&limit);
     while( limit>0) {
-        printf("please enter the number:: ");
         scanf("%d",&num );
         if(num<mini)
             mini = num;

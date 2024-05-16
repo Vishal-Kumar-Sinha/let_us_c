@@ -7,7 +7,6 @@ where t is temperature and v is wind velocity. Write a program to receive
 values of t and v and calculate wind-chill factor (wcf).
 */
 #include<stdio.h>
-
 float getWCF(float t, float v) {
     return (3.74+(0.6215*t)+(((0.4275*t)-35.75)*(0.16*v)));
 }
