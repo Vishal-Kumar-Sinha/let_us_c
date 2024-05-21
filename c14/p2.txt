@@ -1,0 +1,10 @@
+&u       =  e. F9C
+&j       =  b. F9E
+pj       =  b. F9E
+*pj      =  c. 35
+i        =  g. unspecified (60)
+pi       =  e. F9C
+*pi      =  g. unspecified (25)
+(pi+2)   =  i. F9E
+(*pi+2)  =  g. unspecified (27)
+*(pi+2)  =  c. 35
