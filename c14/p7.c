@@ -10,8 +10,11 @@ void print(int (*m1)[M], int n) {
 void multiplyMatrix(int (*m1)[M], int (*m2)[M], int n) {
     int mul[M][M];
     for(int i=0;i<n;i++) {
-        for(int j=0;j<n;j++)
-            add[i][j]=m1[i][j]+m2[i][j];
+        for(int j=0;j<n;j++) {
+            mul[i][j]=0;
+            for(int k=0;k<n;k++)
+                mul[i][j]+=m1[i][k]+m2[k][j];
+        }
     }
     printf("\nMultiplied matrix::\n");
     print(mul,n);

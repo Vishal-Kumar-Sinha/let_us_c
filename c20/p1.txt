@@ -1,0 +1,12 @@
+Let the file name is "prog.c" so its executable file will be "prog.exe". Now,
+type this command in the command prompt
+
+(1) - To copy the content of one file into another.
+prog.exe < File1.txt > File2.txt
+Input from file1 and put output in file 2
+(2) - To create a new file and add some text to it.
+prog.exe < NewFile.txt
+Input from keyboard and output in the file specified.
+(3) - To display contents of an existing file.
+prog.exe > File1.txt
+Input from the file1 and output in the screen
