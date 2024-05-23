@@ -1,9 +1,4 @@
 #include <stdio.h>
-void swap(int*a, int*b) {
-    int*temp=a;
-    a=b;
-    b=temp;
-}
 void insertion(int *arr, int n) {
     int key,j;
     for(int i=1;i<n;i++) {
