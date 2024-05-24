@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
-float mean(int*a) {
-    int n=sizeof(a)/sizeof(a[0]);
+float mean(int *a,int n) {
+    
     int sum=0;
     for(int i=0;i<n;i++) {
         sum+=a[i];
@@ -13,8 +13,9 @@ float getsd(float a,int n,float m) {
 }
 int main() {
     int arr[]={-6,-12,8,13,11,6,7,2,-6,-9,-10,11,10,9,2};
-    float m=mean(arr);
     int n=sizeof(arr)/sizeof(arr[0]);
+    printf("\n%d\n",n);
+    float m=mean(arr,n);
     printf("mean=%f\n",m);
     for(int i=0;i<n;i++)
         printf("%f ",getsd(arr[i],n,m));

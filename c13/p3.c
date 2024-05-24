@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<limits.h>
-int* getSmallest(int*a) {
+int getSmallest(int*a) {
     int miniele=INT_MAX;
     for(int i=0;i<25;i++)
         miniele=(a[i]<miniele)?a[i]:miniele;
