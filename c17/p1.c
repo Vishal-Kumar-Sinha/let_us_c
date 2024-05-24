@@ -1,6 +1,5 @@
 #include <stdio.h>
-struct student
-{
+struct student {
     int rno;
     char name[10];
     char dept[10];

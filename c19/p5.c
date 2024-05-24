@@ -1,69 +1,84 @@
 #include <stdio.h>
-struct customer
-{
-int accno;
-char name[30];
-float balance;
+#include <string.h>
+struct customer {
+    int accno;
+    char name[30];
+    float balance;
 };
-struct trans
-{
-int accno;
-char trans_type;
-float amount;
+struct trans {
+    int accno;
+    char trans_type;
+    float amount;
 };
-void updateCustomerFile()
-{
-FILE *customerFile, *transactionFile;
-struct customer cust;
-struct trans tr;
-customerFile = fopen("CUSTOMER.DAT", "r+");
-if (customerFile == NULL)
-{
-perror("Error opening CUSTOMER.DAT file");
-return;
+void display(char *file) {
+    FILE *fp;
+    struct customer holder;
+    fp = fopen(file, "rb");
+    while (fread(&holder, sizeof(holder), 1, fp) == 1) {
+        printf("\n%d", holder.accno);
+        printf(":\t%s", holder.name);
+        printf("\t%f\n", holder.balance);
+    }
+    fclose(fp);
 }
-transactionFile = fopen("TRANSACTIONS.DAT", "r");
-if (transactionFile == NULL)
-{
-perror("Error opening TRANSACTIONS.DAT file");
-fclose(customerFile);
-return;
+void add_info(int accno, char *name, float bal) {
+    FILE *fp;
+    struct customer holder;
+    fp = fopen("customer.dat", "rb+");
+    if (fp == NULL)
+        fp = fopen("customer.dat", "wb");
+    fseek(fp, 0, SEEK_END);
+    holder.accno = accno;
+    strcpy(holder.name, name);
+    holder.balance = bal;
+    fwrite(&holder, sizeof(holder), 1, fp);
+    fclose(fp);
 }
-while (fread(&tr, sizeof(struct trans), 1, transactionFile) == 1)
+void transaction(int accno, char ttype, float amount)
 {
-rewind(customerFile);
-while (fread(&cust, sizeof(struct customer), 1, customerFile) == 1)
-{
-if (cust.accno == tr.accno)
-{
-if (tr.trans_type == 'D')
-{
-cust.balance += tr.amount;
+    FILE *fp, *temp;
+    struct customer holder;
+    fp = fopen("customer.dat", "rb");
+    temp = fopen("temp.dat", "wb");
+    while (fread(&holder, sizeof(holder), 1, fp) == 1) {
+        if (holder.accno == accno) {
+            switch (ttype) {
+            case 'd':
+            case 'D':
+                holder.balance += amount;
+                break;
+            case 'w':
+            case 'W':
+                if ((holder.balance - amount) < 100)
+                {
+                    printf("\nAccount balance low.\n");
+                    printf("Transaction failed!!");
+                }
+                else
+                    holder.balance -= amount;
+                break;
+            default:
+                puts("Wrong transaction type!!");
+                puts("\nTry Again!!");
+                fclose(fp);
+                fclose(temp);
+                remove("temp.dat");
+                return;
+            }
+        }
+        fwrite(&holder, sizeof(holder), 1, temp);
+    }
+    fclose(fp);
+    fclose(temp);
+    remove("customer.dat");
+    rename("temp.dat", "customer.dat");
 }
-else if (tr.trans_type == 'W')
-{
-if (cust.balance - tr.amount >= 100)
-{
-cust.balance -= tr.amount;
-}
-else
-{
-printf("Cannot withdraw. Minimum balance of 100 Rs.
-should remain.\n");
-}
-}
-fseek(customerFile, -sizeof(struct customer), SEEK_CUR);
-fwrite(&cust, sizeof(struct customer), 1, customerFile);
-break;
-}
-}
-}
-fclose(customerFile);
-fclose(transactionFile);
-printf("Customer file updated successfully.\n");
-}
-int main()
-{
-updateCustomerFile();
-return 0;
+int main() {
+    add_info(1, "Siraj", 1000);
+    puts("\nBefore Transaction");
+    display("customer.dat");
+    transaction(1, 'd', 1000);
+    puts("\nAfter Transaction");
+    display("customer.dat");
+    return 0;
 }

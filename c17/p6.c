@@ -50,9 +50,9 @@ void adbuk() {
     geclib[next].an=next+1;
     while (getchar()!='\n');
     printf("\nEnter the title of the book : ");
-    gets_s(geclib[next].title);
+    gets(geclib[next].title);
     printf("\nEnter the author name of the book : ");
-    gets_s(geclib[next].author);
+    gets(geclib[next].author);
     printf("\nEnter the price of the book : ");
     scanf("%d", &geclib[next].price);
     geclib[next].flag = 1;
@@ -103,7 +103,7 @@ int main() {
                 while (getchar() != '\n')
                     ;
                 printf("Enter the name of the author (case sensitive) : ");
-                gets_s(auth);
+                gets(auth);
                 giv_author(auth);
                 break;
             case 4:

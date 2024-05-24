@@ -7,7 +7,7 @@ typedef struct {
     char name[MAX];
     int age;
 } Student;
-int cmp(const void *a, const void *b) {
+int cmp(void const *a, void const *b) {
     Student *sA=(Student *)a;
     Student *sB=(Student *)b;
     return strcmp(sA->name, sB->name);

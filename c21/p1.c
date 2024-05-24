@@ -23,7 +23,7 @@ int main() {
     int count=0;
     unsigned int andmsk,j;
     int game=addData();
-    for(i=0;i<9;i++) {
+    for(int i=0;i<9;i++) {
         andmsk=LS(i);
         j=(game & andmsk);
         if(j==andmsk)

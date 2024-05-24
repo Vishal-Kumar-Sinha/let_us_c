@@ -11,7 +11,6 @@ typedef struct policy {
 
 int main() {
     int n,enm;
-    char str[10];
     scanf("%d",&n);
     POLICY p[n];
     for(int i=0;i<n;i++) {
@@ -22,8 +21,7 @@ int main() {
         scanf("%d",&enm);
         (enm==1)?(p[i].level=minor):(p[i].level=major);
         printf("\nEnter name of the customer : ");
-        scanf("%[^\n]s", str);
-        p[i].policy_name=str;
+        scanf("%s", p[i].policy_name);
         printf("\nEnter the duration (in years) :: ");
         scanf("%d", &p[i].duration_in_year);
     }

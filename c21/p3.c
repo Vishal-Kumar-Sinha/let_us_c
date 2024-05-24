@@ -26,7 +26,7 @@ void showinfo(int a) {
                 printf("Year, ");
             }
             else if(i>7)
-                search+=int(pow(2,i-8));
+                search+=(int)pow(2,i-8);
             else {
                 switch(i) {
                 case 4:
@@ -58,7 +58,7 @@ int main()
         search = 0;
         for(int j = 8; j < 16; j++) {
             if(data[i] & LS(j))
-                search+=int(pow(2, j-8));
+                search+=(int)pow(2, j-8);
         }
         showinfo(data[i]);
     }

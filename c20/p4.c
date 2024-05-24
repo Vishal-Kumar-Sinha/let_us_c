@@ -27,7 +27,7 @@ int main(int ac, char *av[]) {
             printf("%d %c %d = %d", a, av[1][0], b, a - b);
             break;
         case '/':
-            printf("%d %c %d = %.2f", a, av[1][0], b, float(a) / float(b));
+            printf("%d %c %d = %.2f", a, av[1][0], b, (float)a/(float)b);
             break;
         case '*':
             printf("%d %c %d = %d", a, av[1][0], b, a * b);
