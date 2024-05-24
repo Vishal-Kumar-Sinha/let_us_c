@@ -18,7 +18,7 @@ void addMatrix(int (*m1)[M], int (*m2)[M], int n) {
 }
 int main() {
     int n;
-    int m1[M][M], m1[M][M];
+    int m1[M][M], m2[M][M];
     scanf("%d",&n);
     for(int i=0;i<n;i++) {
         for(int j=0;j<n;j++)
@@ -26,12 +26,12 @@ int main() {
     }
     for(int i=0;i<n;i++) {
         for(int j=0;j<n;j++)
-            scanf("%d",&m1[i][j]);
+            scanf("%d",&m2[i][j]);
     }
     printf("\nMatrix 1::\n");
     print(m1,n);
     printf("\nMatrix 2::\n");
-    print(m1,n);
+    print(m2,n);
     addMatrix(m1,m2,n);
     return 0;
 }
