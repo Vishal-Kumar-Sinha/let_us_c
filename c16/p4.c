@@ -23,7 +23,7 @@ int main() {
     scanf("%d",&n);
     char names[n][20];
     for (int i=0;i<n;i++)
-        scanf("%[^\n]s",names[i]);
+        scanf("%s",names[i]);
     printf("Abbreviated names are:\n");
     for (int i=0;i<n;i++) {
         char *str=abbr(names[i]);

@@ -8,7 +8,7 @@ bool isVowel(char c) {
 }
 void sol(char *str) {
     int j=0;
-    char ans[10];
+    char ans[20];
     for (int i=0;i<strlen(str);i++){
         if(!isVowel(str[i]))
             ans[j++]=str[i];
@@ -17,7 +17,7 @@ void sol(char *str) {
     printf("\nWithout vowel:: %s",ans);
 }
 int main() {
-    char str[10];
+    char str[20];
     gets(str);
     sol(str);
     return 0;

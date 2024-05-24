@@ -8,7 +8,7 @@ bool isVowel(char c) {
         return true;
     return false;
 }
-int cntOccurences(char *str) {
+int cntOccur(char *str) {
     int n=strlen(str),cnt=0;
     for(int i=0;i<n-1;i++) {
         if(isVowel(str[i]) && isVowel(str[i+1]))
@@ -18,6 +18,6 @@ int cntOccurences(char *str) {
 }
 int main() {
     char str[]="Please read this application and give me gratuity";
-    printf("Occurences of any two vowels in succession :: %d\n",cntOccur(str));
+    printf("%d\n",cntOccur(str));
     return 0;
 }
